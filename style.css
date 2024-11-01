@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  font-family: 'Garamond', sans-serif;
+  font-size: 2vh;
+  color: white;
+  min-height: 100vh
+  animation: colorChange 5s infinite alternate;
+}
+
+h1 {
+font-size: 10vh;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+
+
+/* ACHTUNG AB HIER GRADIENT CODE*/
+
+
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-background {
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(252,255,229,1) 100%);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+h1, p {
+    position: relative;
+    color: #fff; /* Textfarbe anpassen, um Sichtbarkeit zu gewährleisten */
+    z-index: 1;
+    text-align: center;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* xxx /*
+
+
+
+
+.blur-text {
+         transition: filter 0.3s ease;
+     }
+
+     .blur-text:hover {
+         filter: blur(5px);
+     }
+
+
+
+     /* Basisstil für alle Links */
+a {
+  color: black; /* Textfarbe */
+  text-decoration: none; /* Entfernt die Unterstreichung */
+  transition: color 0.5s ease; /* Übergangseffekt für die Farbe */
+  z-index: 2
+  font-family: 'Garamond', sans-serif;
+  font-size: 10px;
+}
+
+/* Stil für Links beim Hover */
+a:hover {
+  color: #1f1f1f; /* Ändert die Textfarbe beim Hover */
+  text-decoration: none;
+  filter: blur(5px);
+  z-index: 2
+}
+
+/* Stil für aktive Links */
+a:active {
+  color: green; /* Ändert die Textfarbe, wenn der Link aktiv ist */
+  z-index: 2
+}
+
+/* Stil für besuchte Links */
+a:visited {
+  color: black; /* Ändert die Textfarbe für besuchte Links */
+  z-index: 2
+}
+
+@media (max-width: 600px) {
+        .blur-text {
+            font-size: 6vw; /* Größere Schriftgröße für kleinere Bildschirme */
+            z-index: 2;
+        }
+
+        .btext {
+          position: fixed;
+                  filter: blur(5px);
+                  font-size: 3vh; /* Größere Schriftgröße für kleinere Bildschirme */
+                  z-index: -1;
+              }
+
+    }
+
+@media (min-width: 1200px) {
+        .blur-text {
+            font-size: 6vh; /* Kleinere Schriftgröße für sehr große Bildschirme */
+            z-index: 1;
+    }
+    .btext {
+      position: fixed;
+      align-content:
+              filter: blur(5px);
+              font-size: 3vh; /* Größere Schriftgröße für kleinere Bildschirme */
+              z-index: -1;
+          }
+        }
