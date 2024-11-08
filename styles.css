@@ -1,0 +1,87 @@
+body {
+  display: flex;
+  font-family: "EB Garamond", serif;
+
+}
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.background {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(252,255,229,1) 100%);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+0% {
+background-position: 0% 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
+}
+
+
+.container {
+display: flex;
+max-width: 1200px;
+width: 100%;
+flex-wrap: wrap;
+margin-top: 50px;
+justify-content: center;
+
+}
+
+.container img {
+
+  margin: 10px;
+}
+
+.header {
+  position: fixed;
+  font-size: 20px;
+  color: #d3d6b0;
+  background-color: black;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size:20px;
+  color: #d3d6b0;
+  background-color: black;
+  text-align: center;
+
+}
+a {
+  color: #d3d6b0;
+  text-decoration: none;
+  transition: color 0.7s ease;
+  font-family: "EB Garamond", sans-serif;
+}
+a:hover {
+  color: #0004a3;
+  text-decoration: none;
+  filter: blur(5px);
+}
+a:active {
+  color: #0004a3;
+}
+a:visited {
+  color: #0004a3;
+}
