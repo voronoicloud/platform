@@ -1,7 +1,7 @@
 @font-face {
-  font-family: CompagnonLight;
-  src:url(../fonts/Compagnon-Light.woff) format("woff"),
-      url(../fonts/Compagnon-Light.woff2) format("woff2");
+  font-family: "Alte Haas Grotesk";
+  src:url(../fonts/Alte-Haas-Grotesk-Bold-V2.woff) format("woff"),
+      url(../fonts/Alte-Haas-Grotesk-Bold-V2.woff2) format("woff2");
   font-weight:200;
   font-style:normal;
 }

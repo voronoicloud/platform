@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+		<link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+	<title>Boden</title>
+</head>
+
+<body>
+
+	<div id="flash"></div>
+
+     <script>
+         window.addEventListener('load', () => {
+             const flashDiv = document.getElementById('flash');
+             setTimeout(() => {
+                 flashDiv.style.transition = 'opacity 0.2s ease';
+                 flashDiv.style.opacity = 0;
+             }, 100); // Blitzdauer (100ms)
+
+             setTimeout(() => {
+                 flashDiv.remove(); // Element komplett entfernen, um Interferenzen zu vermeiden
+             }, 600); // Wartezeit, bis das Element entfernt wird
+         });
+     </script>
+
+  <div id="circle"></div>
+
+
+  <script>
+    const circle = document.getElementById('circle');
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Mausbewegungen verfolgen
+    document.addEventListener('mousemove', (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+
+      // Kreisposition aktualisieren
+      circle.style.left = `${mouseX - 10}px`;
+      circle.style.top = `${mouseY - 10}px`;
+    });
+
+    // Funktion, um kleine Kreise zu erzeugen
+    function createSmallCircle() {
+      const smallCircle = document.createElement('div');
+      smallCircle.classList.add('small-circle');
+      document.body.appendChild(smallCircle);
+
+      // Startposition (zentriert beim großen Kreis)
+      smallCircle.style.left = `${mouseX - 5}px`;
+      smallCircle.style.top = `${mouseY - 5}px`;
+
+      // Zufällige Geschwindigkeit und Richtung
+      const angle = Math.random() * 2 * Math.PI; // Zufälliger Winkel in Radianten
+      const speed = Math.random() * 3 + 2; // Geschwindigkeit (2 bis 5 Pixel pro Frame)
+      const velocityX = Math.cos(angle) * speed;
+      const velocityY = Math.sin(angle) * speed;
+
+      // Bewegung der kleinen Kreise
+      const moveInterval = setInterval(() => {
+        const currentX = parseFloat(smallCircle.style.left);
+        const currentY = parseFloat(smallCircle.style.top);
+        smallCircle.style.left = `${currentX + velocityX}px`;
+        smallCircle.style.top = `${currentY + velocityY}px`;
+
+        // Entfernen, wenn außerhalb des Fensters
+        if (
+          currentX < -10 || currentX > window.innerWidth + 10 ||
+          currentY < -10 || currentY > window.innerHeight + 10
+        ) {
+          clearInterval(moveInterval);
+          smallCircle.remove();
+        }
+      }, 20); // Aktualisierung alle 20ms
+    }
+
+    // Alle 3 Sekunden kleine Kreise erzeugen
+    setInterval(createSmallCircle, 1000);
+  </script>
+
+
+
+<div class="intext">
+	<span class="link-with-image">
+	<a href="./index-websites.html" class="hover-link">Websites</a><sup>(1)</sup><img src="./assets/img/5.png" class="hover-image"></span>,
+	<span class="link-with-image">
+	<a href="./index-bilder.html" class="hover-link">Bilder</a><sup>(2)</sup><img src="./assets/img/2.png" class="hover-image"></span>,
+	<span class="link-with-image">
+	<a href="./index-gestaltung.html" class="hover-link">Gestaltung</a><sup>(3)</sup><img src="./assets/img/1.png" class="hover-image"></span>,
+	<span class="link-with-image">
+	<a href="./index-videos.html" class="hover-link">Videos</a><sup>(4)</sup><img src="./assets/img/3.gif" class="hover-image-1"></span>
+	&<span class="link-with-image">
+	<a href="./index-tools.html" class="hover-link">Tools</a><sup>(5)</sup><img src="./assets/img/apple.png" class="hover-image-1"></span> <a href="./index.html" class="hover-link"><sup>(&#10006;)</sup> </a>
+<br>::
+</div>
+
+<div class="gradient-overlay"></div>
+<div id="content" class="footer">
+
+HAW Hamburg Let's Platform WiSe 24/25 | &copy; 2024 Carl Riesselmann. Alle Rechte vorbehalten.
+
+
+
+</div>
+</body>
+</html>

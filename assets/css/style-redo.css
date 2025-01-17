@@ -1,0 +1,333 @@
+body{
+	font-family: "Alte Haas Grotesk", serif;
+	background-color: red;
+	font-size: 5.5vh;
+	justify-content: left;
+	text-align: left;
+	font-weight: 700;
+	color: #f5f5f5;
+	margin: 5vh;
+	margin-left: 5vh;
+	line-height: 100%;
+}
+
+sup {
+	font-size: 3vh;
+	line-height: 1.1;
+}
+.footer {
+	font-size: 3vh;
+	color: black;
+	position: fixed;
+	bottom: 0px;
+	text-align: left;
+	filter: blur(3px);
+	z-index: 100;
+	width: 100%;
+}
+
+.footer:hover {
+	filter: blur(0px);
+	transition: filter 0.2s ease;
+}
+
+.box {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 11vh;
+	height: 10vh;
+	font-size: 20px;
+	color: black;
+}
+
+.box:hover {
+background-color: red;
+color:  #f5f5f5;
+height: 100vh;
+transition: all 2s ease;
+transition: background-color 1s ease;
+transition: height 0.5s ease;
+cursor: crosshair;
+}
+
+
+/* STYLE CURSER---------------------------------------------- */
+
+#circle {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: #f5f5f5;
+	border-radius: 50%;
+	pointer-events: none;
+}
+.small-circle {
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background-color: #f5f5f5;
+	border-radius: 50%;
+	pointer-events: none;
+}
+
+/* STYLE CURSER END ------------------------------------------ */
+
+
+/* LINK HOVER EFFEKT ------------------------------------------ */
+
+.hover-link {
+    text-decoration: none; /* Standard-Unterstreichung entfernen */
+    color: #f5f5f5; /* Textfarbe */
+    position: relative; /* Für das Pseudo-Element */
+		cursor: crosshair;
+}
+
+/* Pseudo-Element für den Strich */
+.hover-link::after {
+    content: ''; /* Fügt eine Linie hinzu */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0; /* Startbreite */
+    height: 6px; /* Dicke des Strichs */
+    background-color: #f5f5f5; /* Farbe des Strichs */
+    transition: width 0.3s ease; /* Animiert die Breite */
+    pointer-events: none;
+		cursor: crosshair;
+}
+
+/* Hover-Effekt */
+.hover-link:hover::after {
+    width: 100%; /* Der Strich breitet sich vollständig aus */
+    pointer-events: none;
+		cursor: crosshair;
+}
+
+
+/* LINK HOVER END ------------------------------------------ */
+
+
+
+/* LINK BILD HOOVER  ------------------------------------------ */
+
+.link-with-image {
+
+        }
+
+        .hover-image {
+            display: none;
+						width: 400px;
+						height: 400px;
+            position: fixed; /* Bild wird vom normalen Fluss getrennt */
+						top: 10%;
+						left: 50%;
+            z-index: 1000; /* Über allen anderen Elementen */
+						opacity: 80%;
+        }
+
+        .link-with-image:hover .hover-image {
+            display: flex;
+        }
+
+
+	.hover-image-1 {
+						display: none;
+						width: 400px;
+						height: 400px;
+						position: fixed; /* Bild wird vom normalen Fluss getrennt */
+						top: 10%;
+						left: 10%;
+						z-index: 1000; /* Über allen anderen Elementen */
+
+						opacity: 80%;
+				}
+
+				.link-with-image:hover .hover-image-1 {
+            display: flex;
+        }
+
+
+/* LINK BILD HOOVER  END ------------------------------------------ */
+
+
+/* LINKLISTE ------------------------------------------ */
+.lister {
+	z-index: 4;
+}
+
+.link-list {
+
+}
+
+.hover-image-list {
+		display: none;
+		width: 400px;
+		height: 400px;
+		position: fixed; /* Bild wird vom normalen Fluss getrennt */
+		top: 10%;
+		left: 50%;
+		z-index: 1000; /* Über allen anderen Elementen */
+		opacity: 100%;
+}
+
+.link-list:hover .hover-image-list {
+		display: flex;
+}
+
+
+/* LINKLISTE ENDE ------------------------------------------ */
+
+
+/* WHITESPACE ------------------------------------------ */
+
+.white {
+	height:50vh;
+	background-color: #f5f5f5;
+}
+
+#flash {
+					 position: fixed;
+					 top: 0;
+					 left: 0;
+					 width: 100vw;
+					 height: 100vh;
+					 background-color: #f5f5f5;
+					 z-index: 9999;
+			 }
+
+.gradient-overlay {
+					 position: fixed;
+					 bottom: 0px;
+					 left: 0;
+					 width: 100vw;
+					 height: 25vh; /* 20% der Höhe des Bildschirms */
+					 background: linear-gradient(to top, #f5f5f5 20px, rgba(245, 245, 245, 0) 100%);
+					 pointer-events: none; /* sorgt dafür, dass es keine Interaktionen blockiert */
+					 z-index: 5;
+			 }
+
+/* WHITESPACE END ------------------------------------------ */
+
+/*ADD ------------------------------------------ */
+
+.circle {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		background-color: #f5f5f5;
+		border-radius: 50%;
+		bottom: 20px;
+		right: 20px;
+		cursor: crosshair;
+		z-index: 1000;
+		color: red;
+		align-content: center;
+		text-align: center;
+}
+
+.circle:hover {
+	width: 100px;
+	height: 100px;
+	transition: all 2s ease;
+	transition: background-color 1s ease;
+	transition: height 0.5s ease;
+	color: red;
+	text-align: center;
+
+}
+
+@keyframes shoot {
+		0% {
+				transform: translate(0, 0) scale(1);
+				opacity: 1;
+		}
+		100% {
+				transform: translate(var(--dx), var(--dy)) scale(0.5);
+				opacity: 0;
+		}
+}
+
+.particle {
+		position: absolute;
+		width: 10px;
+		height: 10px;
+		background-color: #red;
+		border-radius: 50%;
+		animation: shoot 0.6s ease-out forwards;
+}
+
+/*ADD END ------------------------------------------ */
+
+/*TEXT-AREA ------------------------------------------ */
+
+input[type="text"] {
+					 background-color: red; /* Roter Hintergrund */
+					 border: none;          /* Kein sichtbarer Rahmen */
+					 padding: 0px;         /* Innenabstand für Text */
+					 font-size: 5.5vh;
+					 font-weight: 700;
+					 width:90%;
+					 color: #f5f5f5;          /* Weiße Schriftfarbe für guten Kontrast */
+					 outline: none;         /* Kein Standard-Umriss bei Fokus */
+					 cursor: crosshair;
+					 caret-color: #f5f5f5;
+			 }
+
+button {
+			             background-color: red;  /* Roter Hintergrund */
+			             color: #f5f5f5;           /* Weißer Text */
+			             border: none;           /* Kein Rahmen */
+			             font-size: 5.5vh;
+									 font-weight: 700;      /* Schriftgröße */
+			             border-radius: 0px;     /* Leicht abgerundete Ecken */
+			             cursor: pointer;        /* Zeigt Hand-Cursor */
+			             transition: background-color 0.3s ease, color 0.3s ease; /* Weicher Übergang */
+									 width: 100%;
+									 text-align: left;
+			         }
+
+			         /* Beim Klicken oder gedrückt halten */
+button:hover {
+			             background-color: white;
+			             color: red;
+									 cursor: crosshair;
+			         }
+
+
+.dropdown-menu {
+	background-color: red;  /* Roter Hintergrund */
+	color: #f5f5f5;           /* Weißer Text */
+	border: none;           /* Kein Rahmen */
+	font-size: 5.5vh;
+	font-weight: 700;      /* Schriftgröße */
+	border-radius: 0px;     /* Leicht abgerundete Ecken */
+	cursor: crosshair;
+	width: 20%;
+	text-align: left;
+}
+
+.dropdown-menu:hover {
+	background-color: #f5f5f5;
+	color: red;
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu option {
+							            background-color: red /* Option Hintergrund weiß */
+							            color: #f5f5f5; /* Option Text schwarz */
+													border: none;           /* Kein Rahmen */
+												 	font-size: 5.5vh;
+												 	font-weight: 700;      /* Schriftgröße */
+												 	border-radius: 0px;     /* Leicht abgerundete Ecken */
+												 	cursor: pointer;        /* Zeigt Hand-Cursor */
+												 	width: 100%;
+												 	text-align: left;
+							         }
+
+.dropdown-menu option:hover {
+                           background-color: red; /* Option Hintergrund weiß */
+											     color: black; /* Option Text schwarz */
+											 							         }
+
+/*TEXT-AREA END------------------------------------------ */

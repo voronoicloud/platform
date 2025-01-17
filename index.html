@@ -1,39 +1,166 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carl Riesselmann</title>
-    <link rel="icon" type="image/x-icon" href="icon.ico">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+		<link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+	<title>Boden</title>
 </head>
+
 <body>
 
-<div class="header">
-Carl Riesselmann <br>
-2024/25 (WS)<br>
-haw hamburg (de) <br>
-<a href="https://instagram.com/grauevenen"> instagram </a> <br>
-<a href="mailto:carl.riesselmann@gmail.com"> e-mail </a>
+	<div id="flash"></div>
+
+     <script>
+         window.addEventListener('load', () => {
+             const flashDiv = document.getElementById('flash');
+             setTimeout(() => {
+                 flashDiv.style.transition = 'opacity 0.2s ease';
+                 flashDiv.style.opacity = 0;
+             }, 100); // Blitzdauer (100ms)
+
+             setTimeout(() => {
+                 flashDiv.remove(); // Element komplett entfernen, um Interferenzen zu vermeiden
+             }, 600); // Wartezeit, bis das Element entfernt wird
+         });
+     </script>
+
+  <div id="circle"></div>
+
+
+  <script>
+    const circle = document.getElementById('circle');
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Mausbewegungen verfolgen
+    document.addEventListener('mousemove', (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+
+      // Kreisposition aktualisieren
+      circle.style.left = `${mouseX - 10}px`;
+      circle.style.top = `${mouseY - 10}px`;
+    });
+
+    // Funktion, um kleine Kreise zu erzeugen
+    function createSmallCircle() {
+      const smallCircle = document.createElement('div');
+      smallCircle.classList.add('small-circle');
+      document.body.appendChild(smallCircle);
+
+      // Startposition (zentriert beim großen Kreis)
+      smallCircle.style.left = `${mouseX - 5}px`;
+      smallCircle.style.top = `${mouseY - 5}px`;
+
+      // Zufällige Geschwindigkeit und Richtung
+      const angle = Math.random() * 2 * Math.PI; // Zufälliger Winkel in Radianten
+      const speed = Math.random() * 3 + 2; // Geschwindigkeit (2 bis 5 Pixel pro Frame)
+      const velocityX = Math.cos(angle) * speed;
+      const velocityY = Math.sin(angle) * speed;
+
+      // Bewegung der kleinen Kreise
+      const moveInterval = setInterval(() => {
+        const currentX = parseFloat(smallCircle.style.left);
+        const currentY = parseFloat(smallCircle.style.top);
+        smallCircle.style.left = `${currentX + velocityX}px`;
+        smallCircle.style.top = `${currentY + velocityY}px`;
+
+        // Entfernen, wenn außerhalb des Fensters
+        if (
+          currentX < -10 || currentX > window.innerWidth + 10 ||
+          currentY < -10 || currentY > window.innerHeight + 10
+        ) {
+          clearInterval(moveInterval);
+          smallCircle.remove();
+        }
+      }, 20); // Aktualisierung alle 20ms
+    }
+
+    // Alle 3 Sekunden kleine Kreise erzeugen
+    setInterval(createSmallCircle, 1000);
+  </script>
+
+
+<script>
+// Script for hover circle effect
+window.addEventListener('DOMContentLoaded', () => {
+    (function() {
+        // Verwende eindeutige IDs und Variablen, um Konflikte zu vermeiden
+        const hoverCircle = document.getElementById('main-circle');
+
+        // Überprüfen, ob das Element existiert
+        if (hoverCircle) {
+            hoverCircle.addEventListener('mouseenter', (event) => {
+                event.stopPropagation(); // Verhindert, dass andere Event-Listener getriggert werden
+                for (let i = 0; i < 100; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+
+                    // Startposition relativ zum Kreis
+                    const rect = hoverCircle.getBoundingClientRect();
+                    particle.style.left = `${rect.left + rect.width / 2}px`;
+                    particle.style.top = `${rect.top + rect.height / 2}px`;
+
+                    // Zufällige Richtung für Animation (vergrößerte Reichweite)
+                    const dx = `${(Math.random() - 0.5) * 1000}px`; // Größere Reichweite der Partikelbewegung
+                    const dy = `${(Math.random() - 0.5) * 1000}px`;
+
+                    particle.style.setProperty('--dx', dx);
+                    particle.style.setProperty('--dy', dy);
+
+                    document.body.appendChild(particle);
+
+                    // Partikel nach Ende der Animation entfernen
+                    particle.addEventListener('animationend', () => {
+                        particle.remove();
+                    });
+                }
+            }, false); // Event in der Bubble-Phase ausführen
+
+            // Entfernen der Partikel bei Mausverlassen
+            hoverCircle.addEventListener('mouseleave', (event) => {
+                event.stopPropagation();
+                document.querySelectorAll('.particle').forEach(p => p.remove());
+            }, false);
+        }
+    })();
+});
+</script>
+
+
+
+
+<div class="intext">
+<span class="under">B</span>oden ist ein <a href="https://de.wikipedia.org/wiki/Archiv" class="hover-link" target="_blank">Archiv</a> und fortlaufende Sammlung von digitalem Material,
+gegliedert in  <a href="./index-kat.html" class="hover-link">[fünf Kategorien]</a>. Kuratiert und erstellt von <a href="https://instagram.com/grauevenen/" class="hover-link" target="_blank">Carl Riesselmann,</a>
+Ergebnis des Kurs Let&rsquo;s Platform der <a href="https://www.haw-hamburg.de/hochschule/design-medien-und-information/departments/design/" class="hover-link" target"_blank">HAW Hamburg</a> WiSe 2024/25.<br>
+::
+<span class="link-with-image">
+<a href="./index-websites.html" class="hover-link">Websites</a><sup>(1)</sup><img src="./assets/img/5.png" class="hover-image"></span>,
+<span class="link-with-image">
+<a href="./index-bilder.html" class="hover-link">Bilder</a><sup>(2)</sup><img src="./assets/img/2.png" class="hover-image"></span>,
+<span class="link-with-image">
+<a href="./index-gestaltung.html" class="hover-link">Gestaltung</a><sup>(3)</sup><img src="./assets/img/1.png" class="hover-image"></span>,
+<span class="link-with-image">
+<a href="./index-videos.html" class="hover-link">Videos</a><sup>(4)</sup><img src="./assets/img/3.gif" class="hover-image-1"></span>
+&<span class="link-with-image">
+<a href="./index-tools.html" class="hover-link">Tools</a><sup>(5)</sup><img src="./assets/img/apple.png" class="hover-image-1"></span>
 </div>
 
-<div class="container">
-<a href="a1-3.jpg" target="_blank" rel="noopener noreferrer"> <img src="a1-3.jpg" alt=""> </a>
-<a href="a1-4.jpg" target="_blank" rel="noopener noreferrer"> <img src="a1-4.jpg" alt=""> </a>
-<a href="a1-2.jpg" target="_blank" rel="noopener noreferrer"> <img src="a1-2.jpg" alt=""> </a>
-<a href="a1-1.jpg" target="_blank" rel="noopener noreferrer"> <img src="a1-1.jpg" alt=""> </a>
-<a href="image-one.png" target="_blank" rel="noopener noreferrer"> <img src="image-one.png" alt=""> </a>
-<a href="image-two.png" target="_blank" rel="noopener  "> <img src="image-two.png" alt=""> </a>
-<a href="image-three.png" target="_blank" rel="noopener noreferrer"> <img src="image-three.png" alt=""> </a>
+<a href="./index-add.html"><div class="circle" id="main-circle">+</div></a>
 
 
-<div class="background"> </div>
 
 
-<div class="footer"> &copy; 2024 Carl Riesselmann. Alle Rechte vorbehalten.</div>
+<div id="content" class="footer">
 
+HAW Hamburg Let's Platform WiSe 24/25 | &copy; 2024 Carl Riesselmann. Alle Rechte vorbehalten.
+
+
+
+</div>
 </body>
 </html>

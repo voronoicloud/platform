@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/style-redo.css">
+		<link rel="icon" type="image/x-icon" href="assets/img/favicon.png">
+	<title>Boden | Verknuepfen</title>
+</head>
+
+<body>
+
+	<div id="flash"></div>
+
+     <script>
+         window.addEventListener('load', () => {
+             const flashDiv = document.getElementById('flash');
+             setTimeout(() => {
+                 flashDiv.style.transition = 'opacity 0.2s ease';
+                 flashDiv.style.opacity = 0;
+             }, 100); // Blitzdauer (100ms)
+
+             setTimeout(() => {
+                 flashDiv.remove(); // Element komplett entfernen, um Interferenzen zu vermeiden
+             }, 600); // Wartezeit, bis das Element entfernt wird
+         });
+     </script>
+
+  <!--<div id="circle"></div> -->
+
+
+<!--  <script>
+    const circle = document.getElementById('circle');
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Mausbewegungen verfolgen
+    document.addEventListener('mousemove', (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+
+      // Kreisposition aktualisieren
+      circle.style.left = `${mouseX - 10}px`;
+      circle.style.top = `${mouseY - 10}px`;
+    });
+
+    // Funktion, um kleine Kreise zu erzeugen
+    function createSmallCircle() {
+      const smallCircle = document.createElement('div');
+      smallCircle.classList.add('small-circle');
+      document.body.appendChild(smallCircle);
+
+      // Startposition (zentriert beim großen Kreis)
+      smallCircle.style.left = `${mouseX - 5}px`;
+      smallCircle.style.top = `${mouseY - 5}px`;
+
+      // Zufällige Geschwindigkeit und Richtung
+      const angle = Math.random() * 2 * Math.PI; // Zufälliger Winkel in Radianten
+      const speed = Math.random() * 3 + 2; // Geschwindigkeit (2 bis 5 Pixel pro Frame)
+      const velocityX = Math.cos(angle) * speed;
+      const velocityY = Math.sin(angle) * speed;
+
+      // Bewegung der kleinen Kreise
+      const moveInterval = setInterval(() => {
+        const currentX = parseFloat(smallCircle.style.left);
+        const currentY = parseFloat(smallCircle.style.top);
+        smallCircle.style.left = `${currentX + velocityX}px`;
+        smallCircle.style.top = `${currentY + velocityY}px`;
+
+        // Entfernen, wenn außerhalb des Fensters
+        if (
+          currentX < -10 || currentX > window.innerWidth + 10 ||
+          currentY < -10 || currentY > window.innerHeight + 10
+        ) {
+          clearInterval(moveInterval);
+          smallCircle.remove();
+        }
+      }, 20); // Aktualisierung alle 20ms
+    }
+
+    // Alle 3 Sekunden kleine Kreise erzeugen
+    setInterval(createSmallCircle, 1000);
+  </script> -->
+
+
+<script>
+// Script for hover circle effect
+window.addEventListener('DOMContentLoaded', () => {
+    (function() {
+        // Verwende eindeutige IDs und Variablen, um Konflikte zu vermeiden
+        const hoverCircle = document.getElementById('main-circle');
+
+        // Überprüfen, ob das Element existiert
+        if (hoverCircle) {
+            hoverCircle.addEventListener('mouseenter', (event) => {
+                event.stopPropagation(); // Verhindert, dass andere Event-Listener getriggert werden
+                for (let i = 0; i < 100; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+
+                    // Startposition relativ zum Kreis
+                    const rect = hoverCircle.getBoundingClientRect();
+                    particle.style.left = `${rect.left + rect.width / 2}px`;
+                    particle.style.top = `${rect.top + rect.height / 2}px`;
+
+                    // Zufällige Richtung für Animation (vergrößerte Reichweite)
+                    const dx = `${(Math.random() - 0.5) * 1000}px`; // Größere Reichweite der Partikelbewegung
+                    const dy = `${(Math.random() - 0.5) * 1000}px`;
+
+                    particle.style.setProperty('--dx', dx);
+                    particle.style.setProperty('--dy', dy);
+
+                    document.body.appendChild(particle);
+
+                    // Partikel nach Ende der Animation entfernen
+                    particle.addEventListener('animationend', () => {
+                        particle.remove();
+                    });
+                }
+            }, false); // Event in der Bubble-Phase ausführen
+
+            // Entfernen der Partikel bei Mausverlassen
+            hoverCircle.addEventListener('mouseleave', (event) => {
+                event.stopPropagation();
+                document.querySelectorAll('.particle').forEach(p => p.remove());
+            }, false);
+        }
+    })();
+});
+</script>
+
+
+<div class="intext">
+<a href="./index.html" class="hover-link">Boden</a> ist eine kollaboratives Netz. <br> Verknuepfe deine Links.<br>
+:: <br><br>
+<form>
+
+
+        <label for="name"></label>
+        <input type="text" id="link" name="link" cols="50" required placeholder="https://the-possible-plattform.github.io/" required>
+        <br><br>
+				<label for="option-select" >Ist ein/eine</label>
+				<select id="option-select" name="options" class="dropdown-menu" required >
+			  <option value="" selected disabled hidden>&#8230;</option>
+				<option value="option1">Website</option>
+				<option value="option2">Bild</option>
+				<option value="option3">Gestaltung</option>
+		    <option value="option4">Video</option>
+			  <option value="option5">Tool</option>
+				</select>
+				<br><br>
+				<button type="submit">Freigeben</button>
+</form>
+
+
+<a href="./index.html"><div class="circle" id="main-circle">-</div></a>
+<div id="content" class="footer">
+
+HAW Hamburg Let's Platform WiSe 24/25 | &copy; 2024 Carl Riesselmann. Alle Rechte vorbehalten.
+
+
+
+</div>
+</body>
+</html>
