@@ -87,7 +87,7 @@
 
 
 <div class="intext">
-<a href="./index.html" class="hover-link">Tools</a><sup>(5)</sup> <a href="./index.html" class="hover-link"><sup>(&#10006;)</sup> </a> <a href="./index-kat.html" class="hover-link"><sup>(&#8617;)</sup> </a>
+<a href="./index.html" class="hover-link">Tools</a><sup>(5)</sup> <a href="./index.html" class="fade-in-link hover-link"><sup>(&#10006;)</sup> </a> <a href="./index-kat.html" class="hover-link"><sup>(&#8617;)</sup> </a>
 <br>::
 </div>
 
@@ -95,8 +95,11 @@
 <span class="link-list"><a href="https://the-possible-platform.github.io/" class="hover-link" target="_blank">/the-possible-platform.github.io/</a><sup>(web)</sup><img src="./assets/img/d.png" class="hover-image-list"></span><br>
 
 </div>
-
+<div class="white"></div>
 <div class="gradient-overlay"></div>
+
+
+
 <div id="content" class="footer">
 
 HAW Hamburg Let's Platform WiSe 24/25 | &copy; 2024 Carl Riesselmann. Alle Rechte vorbehalten.
@@ -104,5 +107,16 @@ HAW Hamburg Let's Platform WiSe 24/25 | &copy; 2024 Carl Riesselmann. Alle Recht
 
 
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+const links = document.querySelectorAll(".fade-in-link");
+links.forEach((link, index) => {
+		setTimeout(() => {
+				link.classList.add("visible"); // Fügt die "visible"-Class hinzu, um die Animation auszulösen
+		}, index * 100); // Abstand zwischen dem Einblenden der Links (300 ms)
+});
+});
+
+</script>
 </body>
 </html>

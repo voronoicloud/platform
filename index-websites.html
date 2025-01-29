@@ -38,8 +38,8 @@
 
     // Mausbewegungen verfolgen
     document.addEventListener('mousemove', (event) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
+      mouseX = event.pageX;
+      mouseY = event.pageY;
 
       // Kreisposition aktualisieren
       circle.style.left = `${mouseX - 10}px`;
@@ -92,16 +92,16 @@
 </div>
 
 <div class="lister">
-<span class="link-list"><a href="https://the-possible-platform.github.io/" class="hover-link" target="_blank">/the-possible-platform.github.io/</a><sup>(web)</sup><img src="./assets/img/d.png" class="hover-image-list"></span><br>
-<span class="link-list"><a href="https://www.nan.xyz/" class="hover-link" target="_blank">/nan.xyz/</a><sup>(web)</sup><img src="./assets/img/f.jpg" class="hover-image-list"></span><br>
-<span class="link-list"><a href="https://margipippi.com/" class="hover-link" target="_blank">/margipippi.com/</a><sup>(web)</sup><img src="./assets/img/k.png" class="hover-image-list"></span><br>
-<span class="link-list"><a href="https://www.stripe.press/poor-charlies-almanack/cover" class="hover-link" target="_blank">/www.stripe.press/poor-charlies-almanack/cover</a><sup>(web)</sup><img src="./assets/img/d.png" class="hover-image-list"></span><br>
-<span class="link-list"><a href="https://www.toptal.com/designers/subtlepatterns/" class="hover-link" target="_blank">/www.toptal.com/designers/subtlepatterns/</a><sup>(web)</sup><img src="./assets/img/f.jpg" class="hover-image-list"></span><br>
-<span class="link-list"><a href="https://www.drawbot.com/" class="hover-link" target="_blank">/drawbot.com/</a><sup>(web)</sup><img src="./assets/img/k.png" class="hover-image-list"></span><br>
-<span class="link-list"><a href="https://www.samt-magazin.de/" class="hover-link" target="_blank">/samt-magazin.de/</a><sup>(web)</sup><img src="./assets/img/d.png" class="hover-image-list"></span><br>
-<span class="link-list"><a href="https://www.fuse.kiwi/" class="hover-link" target="_blank">/fuse.kiwi/</a><sup>(web)</sup><img src="./assets/img/f.jpg" class="hover-image-list"></span><br>
-<span class="link-list"><a href="http://datamoshing.com/" class="hover-link" target="_blank">/datamoshing.com/</a><sup>(web)</sup><img src="./assets/img/k.png" class="hover-image-list"></span><br>
-<span class="link-list"><a href="https://www.fuse.kiwi/" class="hover-link" target="_blank">/fuse.kiwi/</a><sup>(web)</sup><img src="./assets/img/d.png" class="hover-image-list"></span><br>
+<span class="link-list"><a href="https://pixelfed.org/" class="fade-in-link hover-link" target="_blank">/pixelfed.org/</a><sup>(web)</sup><img src="./assets/img/d.png" class="hover-image-list"></span><br>
+<span class="link-list"><a href="https://www.nan.xyz/" class="fade-in-link hover-link" target="_blank">/nan.xyz/</a><sup>(web)</sup><img src="./assets/img/f.jpg" class="hover-image-list"></span><br>
+<span class="link-list"><a href="https://margipippi.com/" class="fade-in-link hover-link" target="_blank">/margipippi.com/</a><sup>(web)</sup><img src="./assets/img/k.png" class="hover-image-list"></span><br>
+<span class="link-list"><a href="https://www.stripe.press/poor-charlies-almanack/cover" class="fade-in-link hover-link" target="_blank">/www.stripe.press/poor-charlies-almanack/cover</a><sup>(web)</sup><img src="./assets/img/d.png" class="hover-image-list"></span><br>
+<span class="link-list"><a href="https://www.toptal.com/designers/subtlepatterns/" class="fade-in-link hover-link" target="_blank">/www.toptal.com/designers/subtlepatterns/</a><sup>(web)</sup><img src="./assets/img/f.jpg" class="hover-image-list"></span><br>
+<span class="link-list"><a href="https://www.drawbot.com/" class="fade-in-link hover-link" target="_blank">/drawbot.com/</a><sup>(web)</sup><img src="./assets/img/k.png" class="hover-image-list"></span><br>
+<span class="link-list"><a href="https://www.samt-magazin.de/" class="fade-in-link hover-link" target="_blank">/samt-magazin.de/</a><sup>(web)</sup><img src="./assets/img/d.png" class="hover-image-list"></span><br>
+<span class="link-list"><a href="https://www.fuse.kiwi/" class="fade-in-link hover-link" target="_blank">/fuse.kiwi/</a><sup>(web)</sup><img src="./assets/img/f.jpg" class="hover-image-list"></span><br>
+<span class="link-list"><a href="http://datamoshing.com/" class="fade-in-link hover-link" target="_blank">/datamoshing.com/</a><sup>(web)</sup><img src="./assets/img/k.png" class="hover-image-list"></span><br>
+<span class="link-list"><a href="https://www.fuse.kiwi/" class="fade-in-link hover-link" target="_blank">/fuse.kiwi/</a><sup>(web)</sup><img src="./assets/img/d.png" class="hover-image-list"></span><br>
 
 
 
@@ -116,5 +116,19 @@ HAW Hamburg Let's Platform WiSe 24/25 | &copy; 2024 Carl Riesselmann. Alle Recht
 
 
 </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+const links = document.querySelectorAll(".fade-in-link");
+links.forEach((link, index) => {
+		setTimeout(() => {
+				link.classList.add("visible"); // Fügt die "visible"-Class hinzu, um die Animation auszulösen
+		}, index * 100); // Abstand zwischen dem Einblenden der Links (300 ms)
+});
+});
+
+</script>
+
+
 </body>
 </html>

@@ -155,10 +155,23 @@ cursor: crosshair;
 /* LINKLISTE ------------------------------------------ */
 .lister {
 	z-index: 4;
+	display: flex;
+	flex-direction: column;
+	gap: 1px; /* Abstand zwischen den Links */
+}
+
+.fade-in-link {
+    opacity: 0; /* Startwert: Unsichtbar */
+    transform: translateY(10px); /* Leichte Verschiebung nach unten */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animationsdauer und -art */
+}
+
+.fade-in-link.visible {
+    opacity: 1; /* Sichtbar */
+    transform: translateY(0); /* Zurück auf die ursprüngliche Position */
 }
 
 .link-list {
-
 }
 
 .hover-image-list {
@@ -172,7 +185,7 @@ cursor: crosshair;
 }
 
 .link-list:hover .hover-image-list {
-		opacity: 100%;
+		opacity: 0%;
 }
 
 
